@@ -91,6 +91,7 @@
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "&Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtCode
             // 
@@ -155,6 +156,7 @@
             // radText
             // 
             this.radText.AutoSize = true;
+            this.radText.Checked = true;
             this.radText.Location = new System.Drawing.Point(82, 28);
             this.radText.Name = "radText";
             this.radText.Size = new System.Drawing.Size(66, 24);

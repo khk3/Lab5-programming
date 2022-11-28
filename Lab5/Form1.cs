@@ -21,6 +21,7 @@ namespace Lab5
         const int MINCODE = 100000;
         //add +1 to the MAXCODE in order to include the value when getting random number
         const int MAXCODE = 200001;
+        const int errorsAllowed = 3;
 
 
         public Form1()
@@ -46,6 +47,31 @@ namespace Lab5
             txtCode.Focus();
             lblCode.Text= Convert.ToString(GetRandom(MINCODE, MAXCODE));
 
+        }//end of form load event
+
+        int counter = 1;
+        private void btnLogin_Click(object sender, EventArgs e)
+        {   
+            //if user input wrong code and less than 3 times. Show a message and number of error entered
+            if (lblCode.Text != txtCode.Text && counter <3)
+            {
+                MessageBox.Show(counter +" incorrect code(s) entered \nTry again - only "+errorsAllowed+ " attempts allowed", PROGRAMMER);
+                counter++;
+                txtCode.Text="";
+                txtCode.Focus();
+            //if user commit mistakes 3 times, show a message and close the program    
+            }else if (counter ==3)
+            {
+                MessageBox.Show(counter + " attempts to login \nAccount locked - Closing program", PROGRAMMER);
+                Close();
+            }
+            //if user enter correct code
+            else
+            {
+                grpLogin.Enabled=false;
+                grpChoose.Visible=true;
+                grpText.Visible=true;
+            }
         }
     }
 }
