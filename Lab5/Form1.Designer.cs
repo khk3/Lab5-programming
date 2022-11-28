@@ -184,7 +184,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(261, 205);
+            this.btnReset.Location = new System.Drawing.Point(261, 194);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 5;
@@ -193,7 +193,7 @@
             // 
             // btnAnalyze
             // 
-            this.btnAnalyze.Location = new System.Drawing.Point(140, 205);
+            this.btnAnalyze.Location = new System.Drawing.Point(140, 194);
             this.btnAnalyze.Name = "btnAnalyze";
             this.btnAnalyze.Size = new System.Drawing.Size(75, 23);
             this.btnAnalyze.TabIndex = 4;
@@ -202,7 +202,7 @@
             // 
             // btnJoin
             // 
-            this.btnJoin.Location = new System.Drawing.Point(19, 205);
+            this.btnJoin.Location = new System.Drawing.Point(19, 194);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(75, 23);
             this.btnJoin.TabIndex = 3;
@@ -319,7 +319,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(11, 205);
+            this.button1.Location = new System.Drawing.Point(11, 194);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(99, 23);
             this.button1.TabIndex = 4;
@@ -328,7 +328,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(246, 205);
+            this.button2.Location = new System.Drawing.Point(246, 194);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 23);
             this.button2.TabIndex = 5;
@@ -342,7 +342,6 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 27);
             this.label9.TabIndex = 6;
-            this.label9.Text = "label9";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
@@ -352,7 +351,6 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 27);
             this.label10.TabIndex = 7;
-            this.label10.Text = "label10";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
@@ -362,16 +360,35 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(99, 27);
             this.label11.TabIndex = 8;
-            this.label11.Text = "label11";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.numericUpDown1.Location = new System.Drawing.Point(116, 42);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(62, 27);
             this.numericUpDown1.TabIndex = 9;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // listBox1
             // 
@@ -387,7 +404,7 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 418);
+            this.ClientSize = new System.Drawing.Size(737, 408);
             this.Controls.Add(this.grpStats);
             this.Controls.Add(this.grpText);
             this.Controls.Add(this.grpChoose);
@@ -397,6 +414,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lab5 by";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.grpLogin.ResumeLayout(false);
             this.grpLogin.PerformLayout();
             this.grpChoose.ResumeLayout(false);
