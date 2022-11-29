@@ -48,17 +48,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.grpStats = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lstBoxStats = new System.Windows.Forms.ListBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblOdd = new System.Windows.Forms.Label();
+            this.lblMean = new System.Windows.Forms.Label();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnGenerate = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.grpLogin.SuspendLayout();
             this.grpChoose.SuspendLayout();
             this.grpText.SuspendLayout();
@@ -149,9 +149,9 @@
             this.radStats.Name = "radStats";
             this.radStats.Size = new System.Drawing.Size(72, 24);
             this.radStats.TabIndex = 1;
-            this.radStats.TabStop = true;
             this.radStats.Text = "Stats";
             this.radStats.UseVisualStyleBackColor = true;
+            this.radStats.CheckedChanged += new System.EventHandler(this.radStats_CheckedChanged);
             // 
             // radText
             // 
@@ -164,6 +164,7 @@
             this.radText.TabStop = true;
             this.radText.Text = "Text";
             this.radText.UseVisualStyleBackColor = true;
+            this.radText.CheckedChanged += new System.EventHandler(this.radText_CheckedChanged);
             // 
             // grpText
             // 
@@ -192,6 +193,7 @@
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "&Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnAnalyze
             // 
@@ -201,6 +203,7 @@
             this.btnAnalyze.TabIndex = 4;
             this.btnAnalyze.Text = "&Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
+            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
             // btnJoin
             // 
@@ -210,6 +213,7 @@
             this.btnJoin.TabIndex = 3;
             this.btnJoin.Text = "&Join";
             this.btnJoin.UseVisualStyleBackColor = true;
+            this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
             // 
             // lblResults
             // 
@@ -229,6 +233,7 @@
             this.chkSwap.TabIndex = 2;
             this.chkSwap.Text = "Swap";
             this.chkSwap.UseVisualStyleBackColor = true;
+            this.chkSwap.CheckedChanged += new System.EventHandler(this.chkSwap_CheckedChanged);
             // 
             // txtString2
             // 
@@ -265,13 +270,13 @@
             // grpStats
             // 
             this.grpStats.BackColor = System.Drawing.Color.PeachPuff;
-            this.grpStats.Controls.Add(this.listBox1);
+            this.grpStats.Controls.Add(this.lstBoxStats);
             this.grpStats.Controls.Add(this.numericUpDown1);
-            this.grpStats.Controls.Add(this.label11);
-            this.grpStats.Controls.Add(this.label10);
-            this.grpStats.Controls.Add(this.label9);
-            this.grpStats.Controls.Add(this.button2);
-            this.grpStats.Controls.Add(this.button1);
+            this.grpStats.Controls.Add(this.lblOdd);
+            this.grpStats.Controls.Add(this.lblMean);
+            this.grpStats.Controls.Add(this.lblSum);
+            this.grpStats.Controls.Add(this.btnClear);
+            this.grpStats.Controls.Add(this.btnGenerate);
             this.grpStats.Controls.Add(this.label8);
             this.grpStats.Controls.Add(this.label7);
             this.grpStats.Controls.Add(this.label6);
@@ -283,86 +288,14 @@
             this.grpStats.TabStop = false;
             this.grpStats.Text = "Stats";
             // 
-            // label5
+            // lstBoxStats
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "How many?";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 83);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Sum:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 119);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 20);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Mean:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 156);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Odd:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(11, 194);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "&Generate";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(246, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "&Clear";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Location = new System.Drawing.Point(79, 83);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 27);
-            this.label9.TabIndex = 6;
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Location = new System.Drawing.Point(79, 119);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 27);
-            this.label10.TabIndex = 7;
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label11
-            // 
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Location = new System.Drawing.Point(79, 156);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 27);
-            this.label11.TabIndex = 8;
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lstBoxStats.FormattingEnabled = true;
+            this.lstBoxStats.ItemHeight = 20;
+            this.lstBoxStats.Location = new System.Drawing.Point(184, 19);
+            this.lstBoxStats.Name = "lstBoxStats";
+            this.lstBoxStats.Size = new System.Drawing.Size(161, 164);
+            this.lstBoxStats.TabIndex = 10;
             // 
             // numericUpDown1
             // 
@@ -392,14 +325,87 @@
             0,
             0});
             // 
-            // listBox1
+            // lblOdd
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(184, 19);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(161, 164);
-            this.listBox1.TabIndex = 10;
+            this.lblOdd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOdd.Location = new System.Drawing.Point(79, 156);
+            this.lblOdd.Name = "lblOdd";
+            this.lblOdd.Size = new System.Drawing.Size(99, 27);
+            this.lblOdd.TabIndex = 8;
+            this.lblOdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMean
+            // 
+            this.lblMean.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMean.Location = new System.Drawing.Point(79, 119);
+            this.lblMean.Name = "lblMean";
+            this.lblMean.Size = new System.Drawing.Size(99, 27);
+            this.lblMean.TabIndex = 7;
+            this.lblMean.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSum
+            // 
+            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblSum.Location = new System.Drawing.Point(79, 83);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(99, 27);
+            this.lblSum.TabIndex = 6;
+            this.lblSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(246, 194);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(99, 23);
+            this.btnClear.TabIndex = 5;
+            this.btnClear.Text = "&Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Location = new System.Drawing.Point(11, 194);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(99, 23);
+            this.btnGenerate.TabIndex = 4;
+            this.btnGenerate.Text = "&Generate";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 156);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(49, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Odd:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 119);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 20);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Mean:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Sum:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 44);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "How many?";
             // 
             // Form1
             // 
@@ -456,13 +462,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstBoxStats;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblOdd;
+        private System.Windows.Forms.Label lblMean;
+        private System.Windows.Forms.Label lblSum;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }
 

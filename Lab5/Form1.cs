@@ -72,6 +72,122 @@ namespace Lab5
                 grpChoose.Visible=true;
                 grpText.Visible=true;
             }
+        }//end of Login event
+        //clear txtbox and set acceptbutton to btnJoin and cancelbutton to btnReset
+        private void ResetTextGrp()
+        {
+            txtString1.Text="";
+            txtString2.Text="";
+            lblResults.Text="";
+            this.AcceptButton= btnJoin;
+            this.CancelButton=btnReset;
+        }// end of resetTextGrp function
+
+        //function ResetStatsGrp - clear all labels and lstbox. Acceptbutton is btnGenerate and cancelbutton is btnClear 
+        private void ResetStatsGrp()
+        {
+            lblSum.Text="";
+            lblMean.Text="";
+            lblOdd.Text="";
+            lstBoxStats.Text="";
+            this.AcceptButton=btnGenerate;
+            this.CancelButton=btnClear;
+        }//end of ResetStatsGrp
+
+        //function SetupOption - will hide or show the groupbox corre
+        private void SetupOption()
+        {
+            if (radText.Checked)
+            {
+                grpText.Visible=true;
+                grpStats.Visible=false;
+                ResetTextGrp();
+            }
+            else
+            {
+                grpText.Visible=false;
+                grpStats.Visible=true;
+                ResetStatsGrp();
+            }
+        }
+        //event will call SetupOption function
+        private void radText_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupOption();
+        }
+        //event will call SetupOption function
+        private void radStats_CheckedChanged(object sender, EventArgs e)
+        {
+            SetupOption();
+        }
+        //btnReset event will call ResetTextGrp function
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetTextGrp();
+        }
+        //btnClear event will call ResetStatsGrp function
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ResetStatsGrp();
+        }
+
+        //Function swap in GrpText. It will get value by reference and store in a temporary variable
+        //only to pass after to the second number
+        private void Swap(ref string txt1, ref string txt2)
+        {
+            string temp = txt1;
+            txt1 = txt2;
+            txt2= temp;
+           
+        }
+
+        //function CheckInput- if txtString1 or txtString2 is empty will return false. Otherwise, true.
+        private bool CheckInput()
+        {
+            bool isValid=true;
+            if (txtString1.Text=="" && txtString2.Text=="")
+            {
+                isValid=false;               
+               
+            }
+            return isValid;
+        }//end of CheckInput function
+        
+        //Swap checkbox event
+        private void chkSwap_CheckedChanged(object sender, EventArgs e)
+        {   
+            //store txtbox values in variables
+            string txt1 = txtString1.Text;
+            string txt2 = txtString2.Text;
+            
+            //swap the strings before calling the function 
+            txtString1.Text= txt2;
+            txtString2.Text= txt1;
+            //call the function Swap sending value by reference
+            Swap(ref txt1, ref txt2);
+
+            //show the swapped result
+            lblResults.Text= txt1 + txt2;            
+        }//end of Swap checkbox event
+
+        //btn Join event
+        private void btnJoin_Click(object sender, EventArgs e)
+        {   
+            //call function CheckInput
+            CheckInput();
+            //show info and and result 
+            lblResults.Text="First string = " + txtString1.Text + "\nSecond string= " +txtString2.Text +"\nJoined = " + 
+                txtString1.Text + "-->" + txtString2.Text ;
+        }
+        //btnAnalyze event
+        private void btnAnalyze_Click(object sender, EventArgs e)
+        {
+            if(CheckInput()==true)
+            {
+                lblResults.Text="First String = "+ txtString1.Text+ "\nCharacters = " + txtString2.Text.Length +
+                    "\nSecond string = " + txtString2.Text + "\nCharacters = " +txtString2.Text.Length;
+            }
+
         }
     }
 }
