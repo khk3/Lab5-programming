@@ -84,7 +84,11 @@ namespace Lab5
             {
                 grpLogin.Enabled=false;
                 grpChoose.Visible=true;
+                radText.Checked=true;
                 grpText.Visible=true;
+                SetupOption();
+                txtString1.Focus();
+               
             }
         }//end of Login event
         //clear txtbox and set acceptbutton to btnJoin and cancelbutton to btnReset
@@ -92,7 +96,7 @@ namespace Lab5
         {
             txtString1.Text="";
             txtString2.Text="";
-            lblResults.Text="";
+            lblResults.Text="";          
             this.AcceptButton= btnJoin;
             this.CancelButton= btnReset;
         }// end of resetTextGrp function
@@ -115,12 +119,14 @@ namespace Lab5
             {
                 grpText.Visible=true;
                 grpStats.Visible=false;
+                //call function ResetTextGrp
                 ResetTextGrp();
             }
             else 
             {
                 grpText.Visible=false;
                 grpStats.Visible=true;
+                //call function ResetStatsGrp
                 ResetStatsGrp();
             }
         }
@@ -251,20 +257,22 @@ namespace Lab5
 
             //Insert the number of Odd numbers by calling the function CountOdd
             lblOdd.Text= Convert.ToString(CountOdd());
-        }
+        }//end of btnGenerate event
 
         //function AddList to get the Sum
         private int AddList()
-        {
+        {   //count initialized by 0 because index starts at 0
             int count = 0;
             int sum = 0;
-            //while count
+            //while will loop while true
             while (count <lstBoxStats.Items.Count)
-            {
+            {   //value will be added while statement is true
                 sum += Convert.ToInt32(lstBoxStats.Items[count]);
+                //count +1 to get the next velue from list box
                 count++;
 
             }
+            //return the total sum os the list
             return sum;
 
         }//end of function Addlist
@@ -272,19 +280,21 @@ namespace Lab5
         //Function CountOdd
         private int CountOdd()
         {
-            int count;
-            int oddNum;
+            //initialized by 0 because index starts at 0
+            int count=0;
+            int oddNum=0;
             do
-            {
-                for (count = 0, oddNum = 0; count < lstBoxStats.Items.Count; count++)
-                {
-                    if (Convert.ToInt32(lstBoxStats.Items[count])%2 == 1)
-
-                        oddNum++;
+            { 
+                //if will each value by their index , and get odd number by %2.  
+               if(Convert.ToInt32(lstBoxStats.Items[count])%2 == 1)
+                {   //Add +1 if true
+                    oddNum++;
                 }
-
+               //add counter +1 
+                count++;               
+                //return loop while count < list Items number. 
             } while (count < lstBoxStats.Items.Count);//end of CountOdd function
             return oddNum;
-        }
+        }//end of CountOdd function
     }
 }

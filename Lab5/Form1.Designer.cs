@@ -190,7 +190,7 @@
             this.btnReset.Location = new System.Drawing.Point(261, 194);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 4;
+            this.btnReset.TabIndex = 5;
             this.btnReset.Text = "&Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -200,7 +200,7 @@
             this.btnAnalyze.Location = new System.Drawing.Point(140, 194);
             this.btnAnalyze.Name = "btnAnalyze";
             this.btnAnalyze.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalyze.TabIndex = 3;
+            this.btnAnalyze.TabIndex = 4;
             this.btnAnalyze.Text = "&Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
@@ -210,7 +210,7 @@
             this.btnJoin.Location = new System.Drawing.Point(19, 194);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(75, 23);
-            this.btnJoin.TabIndex = 2;
+            this.btnJoin.TabIndex = 3;
             this.btnJoin.Text = "&Join";
             this.btnJoin.UseVisualStyleBackColor = true;
             this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
