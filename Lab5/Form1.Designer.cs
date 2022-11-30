@@ -49,7 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.grpStats = new System.Windows.Forms.GroupBox();
             this.lstBoxStats = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudHowMany = new System.Windows.Forms.NumericUpDown();
             this.lblOdd = new System.Windows.Forms.Label();
             this.lblMean = new System.Windows.Forms.Label();
             this.lblSum = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.grpChoose.SuspendLayout();
             this.grpText.SuspendLayout();
             this.grpStats.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHowMany)).BeginInit();
             this.SuspendLayout();
             // 
             // grpLogin
@@ -190,7 +190,7 @@
             this.btnReset.Location = new System.Drawing.Point(261, 194);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 5;
+            this.btnReset.TabIndex = 4;
             this.btnReset.Text = "&Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
@@ -200,7 +200,7 @@
             this.btnAnalyze.Location = new System.Drawing.Point(140, 194);
             this.btnAnalyze.Name = "btnAnalyze";
             this.btnAnalyze.Size = new System.Drawing.Size(75, 23);
-            this.btnAnalyze.TabIndex = 4;
+            this.btnAnalyze.TabIndex = 3;
             this.btnAnalyze.Text = "&Analyze";
             this.btnAnalyze.UseVisualStyleBackColor = true;
             this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
@@ -210,7 +210,7 @@
             this.btnJoin.Location = new System.Drawing.Point(19, 194);
             this.btnJoin.Name = "btnJoin";
             this.btnJoin.Size = new System.Drawing.Size(75, 23);
-            this.btnJoin.TabIndex = 3;
+            this.btnJoin.TabIndex = 2;
             this.btnJoin.Text = "&Join";
             this.btnJoin.UseVisualStyleBackColor = true;
             this.btnJoin.Click += new System.EventHandler(this.btnJoin_Click);
@@ -271,7 +271,7 @@
             // 
             this.grpStats.BackColor = System.Drawing.Color.PeachPuff;
             this.grpStats.Controls.Add(this.lstBoxStats);
-            this.grpStats.Controls.Add(this.numericUpDown1);
+            this.grpStats.Controls.Add(this.nudHowMany);
             this.grpStats.Controls.Add(this.lblOdd);
             this.grpStats.Controls.Add(this.lblMean);
             this.grpStats.Controls.Add(this.lblSum);
@@ -295,31 +295,31 @@
             this.lstBoxStats.Location = new System.Drawing.Point(184, 19);
             this.lstBoxStats.Name = "lstBoxStats";
             this.lstBoxStats.Size = new System.Drawing.Size(161, 164);
-            this.lstBoxStats.TabIndex = 10;
+            this.lstBoxStats.TabIndex = 1;
             // 
-            // numericUpDown1
+            // nudHowMany
             // 
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.nudHowMany.Increment = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(116, 42);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nudHowMany.Location = new System.Drawing.Point(116, 42);
+            this.nudHowMany.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nudHowMany.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(62, 27);
-            this.numericUpDown1.TabIndex = 9;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nudHowMany.Name = "nudHowMany";
+            this.nudHowMany.Size = new System.Drawing.Size(62, 27);
+            this.nudHowMany.TabIndex = 0;
+            this.nudHowMany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.nudHowMany.Value = new decimal(new int[] {
             10,
             0,
             0,
@@ -357,7 +357,7 @@
             this.btnClear.Location = new System.Drawing.Point(246, 194);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(99, 23);
-            this.btnClear.TabIndex = 5;
+            this.btnClear.TabIndex = 2;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -367,9 +367,10 @@
             this.btnGenerate.Location = new System.Drawing.Point(11, 194);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(99, 23);
-            this.btnGenerate.TabIndex = 4;
+            this.btnGenerate.TabIndex = 1;
             this.btnGenerate.Text = "&Generate";
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // label8
             // 
@@ -431,7 +432,7 @@
             this.grpText.PerformLayout();
             this.grpStats.ResumeLayout(false);
             this.grpStats.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHowMany)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -463,7 +464,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lstBoxStats;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudHowMany;
         private System.Windows.Forms.Label lblOdd;
         private System.Windows.Forms.Label lblMean;
         private System.Windows.Forms.Label lblSum;
