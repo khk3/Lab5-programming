@@ -58,7 +58,7 @@ namespace Lab5
         int count = 1;
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+            //numbers of errors allowed before closing the program
             const int ERRORSALLOWED = 3;
 
             //allow only 2 mistakes. The third one will close the program. 
@@ -66,25 +66,26 @@ namespace Lab5
             {
 
                 MessageBox.Show(count +" incorrect code(s) entered \nTry again - only "+ERRORSALLOWED+ " attempts allowed", PROGRAMMER);
-                count++;
+                count++;               
                 txtCode.SelectAll();
-                txtCode.Focus();
+                
 
-                //if user commit mistakes 3 times, show a message and close the program    
-            }//catch when count =3
-            else if (count ==3)
-            {
-                MessageBox.Show(count + " attempts to login \nAccount locked - Closing program", PROGRAMMER);
-                Close();
-            }
-            //if user enter correct code
-            else
+                   
+            }//if user insert the right code
+            else if (lblCode.Text == txtCode.Text)
             {
                 grpLogin.Enabled=false;
                 grpChoose.Visible=true;
                 radText.Checked=true;
                 grpText.Visible=true;
-                SetupOption();            
+                SetupOption();
+               
+            }
+            //if user commit mistakes 3 times, show a message and close the program 
+            else
+            {
+                MessageBox.Show(count + " attempts to login \nAccount locked - Closing program", PROGRAMMER);
+                Close();
             }
         }//end of Login event
         //clear txtbox and set acceptbutton to btnJoin and cancelbutton to btnReset
