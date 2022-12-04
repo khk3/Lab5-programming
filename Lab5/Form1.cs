@@ -14,22 +14,22 @@ namespace Lab5
     //Kang Hyun Kwon    due 06/dec
     //create a program that validates the code first in order to run.
     //user has 3 attempts to run or program will close.
+    //user has to choose groupbox Text - validate , swap , join, count characters
+    //user choose groupboxStats - choose a number from numeric updown and get ramdom values(seed values). Then, getting the sum , mean and odd numbers 
 
     public partial class Form1 : Form
     {
         //class level constant with name
-        const string PROGRAMMER = "Kang";                
-        
-        const int errorsAllowed = 3;
-
+        const string PROGRAMMER = "Kang";                       
 
         public Form1()
         {
             InitializeComponent();
         }
+
         //GetRandom function. Will return a variable the a random number between MINCODE and MAXCODE values
         private int GetRandom(int min, int max)
-        {
+        {   //random with no seed value will give different numbers all the time is called
             Random rand = new Random();
             //max+1 because the Next method ignore the last number inputed
             int randomNum = rand.Next(min, max+1);
@@ -54,26 +54,24 @@ namespace Lab5
 
         }//end of form load event
 
-
+        //btbLoginEvent. //if user input wrong code and less than 3 times. Show a message and number of error entered
         int count = 1;
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
-            const int errorsAllowed = 3;
+            const int ERRORSALLOWED = 3;
 
-           //if user input wrong code and less than 3 times. Show a message and number of error entered
-           
-            
+            //allow only 2 mistakes. The third one will close the program. 
             if (lblCode.Text != txtCode.Text && count <3)
             {
 
-                MessageBox.Show(count +" incorrect code(s) entered \nTry again - only "+errorsAllowed+ " attempts allowed", PROGRAMMER);
+                MessageBox.Show(count +" incorrect code(s) entered \nTry again - only "+ERRORSALLOWED+ " attempts allowed", PROGRAMMER);
                 count++;
                 txtCode.SelectAll();
                 txtCode.Focus();
 
                 //if user commit mistakes 3 times, show a message and close the program    
-            }
+            }//catch when count =3
             else if (count ==3)
             {
                 MessageBox.Show(count + " attempts to login \nAccount locked - Closing program", PROGRAMMER);
@@ -86,9 +84,7 @@ namespace Lab5
                 grpChoose.Visible=true;
                 radText.Checked=true;
                 grpText.Visible=true;
-                SetupOption();
-                txtString1.Focus();
-               
+                SetupOption();            
             }
         }//end of Login event
         //clear txtbox and set acceptbutton to btnJoin and cancelbutton to btnReset
@@ -99,6 +95,8 @@ namespace Lab5
             lblResults.Text="";          
             this.AcceptButton= btnJoin;
             this.CancelButton= btnReset;
+            txtString1.Focus();
+
         }// end of resetTextGrp function
 
         //function ResetStatsGrp - clear all labels and lstbox. Acceptbutton is btnGenerate and cancelbutton is btnClear 
@@ -107,9 +105,14 @@ namespace Lab5
             lblSum.Text="";
             lblMean.Text="";
             lblOdd.Text="";
-            lstBoxStats.Text="";
+            lstBoxStats.Items.Clear();
             this.AcceptButton= btnGenerate;
             this.CancelButton= btnClear;
+            //Get minimum value for numeric updown   
+            nudHowMany.Value = nudHowMany.Minimum;
+            nudHowMany.Focus();
+            
+            
         }//end of ResetStatsGrp
 
         //function SetupOption - will hide or show the groupbox corre
@@ -151,17 +154,14 @@ namespace Lab5
             ResetStatsGrp();
         }
 
-        //Function swap in GrpText. It will get value by reference and store in a temporary variable
-        //only to pass after to the second number
+        //Function swap in GrpText. It will get value by reference 
         private void Swap(ref string txt1, ref string txt2)
         {   
             //create a temporary variable only to store the first value and be sent to the other variable
             string temp = txt1;
             txt1 = txt2;
             txt2= temp;
-          
-
-        }
+        }//end of Swap function
 
         //function CheckInput- if txtString1 or txtString2 is empty will return false. Otherwise, true.
         private bool CheckInput()
@@ -177,7 +177,8 @@ namespace Lab5
 
         //Swap checkbox event
         private void chkSwap_CheckedChanged(object sender, EventArgs e)
-        {
+        {   
+            //if txtbox is filled with data
             if (CheckInput())
             {
                 //store txtbox values in variables
@@ -194,10 +195,10 @@ namespace Lab5
                 //call the function Swap sending value by reference
                 Swap(ref txt1, ref txt2);
                 //Show a message when swapped
-                lblResults.Text= "String have been swapped!";
-            }//end of Swap checkbox event
-        }
-          
+                lblResults.Text= "Strings have been swapped!";
+            }
+        }//end of Swap checkbox event
+
 
         //btn Join event
         private void btnJoin_Click(object sender, EventArgs e)
@@ -266,7 +267,7 @@ namespace Lab5
             int sum = 0;
             //while will loop while true
             while (count <lstBoxStats.Items.Count)
-            {   //value will be added while statement is true
+            {   //value will be added while statement is true getting values by their Index number ( starts at 0)
                 sum += Convert.ToInt32(lstBoxStats.Items[count]);
                 //count +1 to get the next velue from list box
                 count++;
@@ -285,7 +286,7 @@ namespace Lab5
             int oddNum=0;
             do
             { 
-                //if will each value by their index , and get odd number by %2.  
+                //if will each value by their index(starts at 0), and get odd number by %2 =1.  
                if(Convert.ToInt32(lstBoxStats.Items[count])%2 == 1)
                 {   //Add +1 if true
                     oddNum++;
@@ -297,4 +298,4 @@ namespace Lab5
             return oddNum;
         }//end of CountOdd function
     }
-}
+}//end of program
